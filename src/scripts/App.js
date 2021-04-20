@@ -1,24 +1,18 @@
-import LetterElement from "./LetterElement.js";
+import KeyboardOfLetters from "./KeyboardOfLetters.js";
 
 export default class App {
-  constructor (word, samples) {
+  constructor (word, samples, colors) {
     this.state = {
       word,
-      samples
+      samples,
+      colors
     };
   };
 
   render () {
     const appContainer = document.createElement("div");
-
-    for (let i = 0; i < this.state.word.length; i++) {
-      let letter = this.state.word[i];
-      let audio = new Audio();
-      console.log(this.state.samples[i]);
-      audio.src = this.state.samples[i];
-      let letterContainer = new LetterElement(letter, audio, "black").render();
-      appContainer.appendChild(letterContainer);
-    };
+    const keyboardContainer = KeyboardOfLetters(this.state);
+    appContainer.appendChild(keyboardContainer);
 
     return appContainer;
   };

@@ -1,4 +1,4 @@
-export default class LetterButton {
+export default class LetterElement {
   constructor (letter, audio, color) {
     this.state = {
       audio,
