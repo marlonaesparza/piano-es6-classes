@@ -1,5 +1,6 @@
 // Piano Samples
 export const samples = [
+  "piano-sounds/a-note.wav",
   "piano-sounds/c-note.wav",
   "piano-sounds/d-note.wav",
   "piano-sounds/e-note.wav",
