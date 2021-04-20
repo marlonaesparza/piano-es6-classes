@@ -21,9 +21,12 @@ export default class LetterElement {
     const letterSpan = document.createElement("span");
     const letterNode = document.createTextNode(this.state.letter);
     letterSpan.appendChild(letterNode);
+    letterSpan.style.color = `${this.state.color}`;
+    letterSpan.style.fontSize = "6em";
+    letterSpan.style.cursor = "pointer";
     letterSpan.addEventListener('click', this.handleClick);
     letterContainer.appendChild(letterSpan);
-
+    letterContainer.className = "letter-container";
     return letterContainer;
   };
 };

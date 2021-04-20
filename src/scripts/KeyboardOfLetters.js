@@ -13,6 +13,7 @@ const KeyboardOfLetters = (props) => {
      keyboardContainer.appendChild(letterContainer);
    };
 
+  keyboardContainer.className = "keyboard-container";
   return keyboardContainer;
 };
 

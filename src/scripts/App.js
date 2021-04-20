@@ -13,7 +13,7 @@ export default class App {
     const appContainer = document.createElement("div");
     const keyboardContainer = KeyboardOfLetters(this.state);
     appContainer.appendChild(keyboardContainer);
-
+    appContainer.className = "app-container";
     return appContainer;
   };
 };
