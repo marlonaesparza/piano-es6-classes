@@ -17,16 +17,25 @@ export default class LetterElement {
 
   render () {
     const letterContainer = document.createElement("div");
-
     const letterSpan = document.createElement("span");
     const letterNode = document.createTextNode(this.state.letter);
-    letterSpan.appendChild(letterNode);
-    letterSpan.style.color = `${this.state.color}`;
-    letterSpan.style.fontSize = "6em";
-    letterSpan.style.cursor = "pointer";
-    letterSpan.addEventListener('click', this.handleClick);
+    const containerStyle = letterContainer.style;
+    const spanStyle = letterSpan.style;
+
     letterContainer.appendChild(letterSpan);
-    letterContainer.className = "letter-container";
+    letterContainer.classname = "letter-container";
+    containerStyle.margin = "auto";
+    containerStyle.diplay = "grid";
+    containerStyle.gridTemplateColumns = "1fr"
+    containerStyle.placeContent = "center";
+
+    letterSpan.appendChild(letterNode);
+    spanStyle.color = `${this.state.color}`;
+    spanStyle.fontSize = "6em";
+    spanStyle.fontWeight = "bolder";
+    spanStyle.cursor = "pointer";
+    letterSpan.addEventListener('click', this.handleClick);
+
     return letterContainer;
   };
 };

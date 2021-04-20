@@ -1,7 +1,6 @@
 .keyboard-container {
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
   justify-content: center;
   align-content: center;
 }
