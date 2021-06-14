@@ -19,6 +19,7 @@ export default class App {
     containerStyle.margin = "auto";
     containerStyle.display = "grid";
     containerStyle.placeContent = "center";
+    containerStyle.backgroundColor = "black";
 
     return appContainer;
   };
