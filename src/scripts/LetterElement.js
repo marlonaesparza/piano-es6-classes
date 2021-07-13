@@ -6,7 +6,7 @@ export default class LetterElement {
   constructor ({ note, Tone }) {
     this.state = {
       note,
-      synth: Tone.Synth().toDestination();
+      synth: Tone.Synth().toDestination()
     };
 
     this.handleClick = this.handleClick.bind(this);
