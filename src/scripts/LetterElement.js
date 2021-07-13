@@ -1,5 +1,3 @@
-// import * as Tone from 'tone';
-
 import { Tone } from "tone/build/esm/core/Tone";
 
 export default class LetterElement {
@@ -26,10 +24,8 @@ export default class LetterElement {
     const containerStyle = noteContainer.style;
 
     if (note.slice(1).slice(0, 1) === "#") {
-      console.log(note, true);
       noteContainer.className = "note-container black";
     } else {
-      console.log(note, false);
       noteContainer.className = "note-container white";
     };
 
