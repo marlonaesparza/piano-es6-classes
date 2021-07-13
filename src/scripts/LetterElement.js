@@ -1,5 +1,3 @@
-import { Tone } from "tone/build/esm/core/Tone";
-
 export default class LetterElement {
   constructor ({ note, Tone }) {
     this.state = {
