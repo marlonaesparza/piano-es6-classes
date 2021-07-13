@@ -15,10 +15,7 @@ export default class App {
 
     appContainer.appendChild(keyboardContainer);
     appContainer.className = "app-container";
-    containerStyle.margin = "auto";
-    containerStyle.display = "grid";
-    containerStyle.placeContent = "center";
-    containerStyle.backgroundColor = "black";
+    containerStyle.display = "flex";
 
     return appContainer;
   };

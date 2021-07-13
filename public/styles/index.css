@@ -3,21 +3,26 @@
 }
 
 body {
-  margin: auto;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #9b9b9b;
 }
 
-.note-container {
-
-}
-
 .white {
-  width: 100px;
+  width: 90px;
   height: 400px;
   background-color: white;
   border: 1px solid black;
 }
 
 .black {
-
+  width: 70px;
+  height: 240px;
+  margin-left: -35px;
+  margin-right: -35px;
+  background-color: black;
+  z-index: 2;
 }

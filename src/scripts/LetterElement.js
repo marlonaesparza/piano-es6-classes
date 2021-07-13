@@ -6,33 +6,33 @@ export default class LetterElement {
   constructor ({ note, Tone }) {
     this.state = {
       note,
-      synth: Tone.Synth().toDestination()
+      Tone
     };
 
     this.handleClick = this.handleClick.bind(this);
   };
 
   async handleClick (e) {
-    const {note, synth} = this.state;
-
+    const {note, Tone} = this.state;
     await Tone.start();
+    const synth = new Tone.Synth().toDestination();
     synth.triggerAttackRelease(note, "8n");
   };
 
   render () {
+    const { note } = this.state;
+
     const noteContainer = document.createElement("div");
     const containerStyle = noteContainer.style;
 
-    if (note.slice(1) === '#') {
+    if (note.slice(1).slice(0, 1) === "#") {
+      console.log(note, true);
       noteContainer.className = "note-container black";
     } else {
+      console.log(note, false);
       noteContainer.className = "note-container white";
     };
 
-    containerStyle.margin = "auto";
-    containerStyle.display = "grid";
-    containerStyle.gridTemplateColumns = "1fr"
-    containerStyle.placeContent = "center";
     containerStyle.cursor = "pointer";
 
     noteContainer.addEventListener('click', this.handleClick);
