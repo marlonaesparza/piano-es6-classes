@@ -1,11 +1,10 @@
 import KeyboardOfLetters from "./KeyboardOfLetters.js";
 
 export default class App {
-  constructor (word, samples, colors) {
+  constructor ({notes, Tone}) {
     this.state = {
-      word,
-      samples,
-      colors
+      notes,
+      Tone
     };
   };
 

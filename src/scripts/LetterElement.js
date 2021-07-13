@@ -1,41 +1,42 @@
+// import * as Tone from 'tone';
+
+import { Tone } from "tone/build/esm/core/Tone";
+
 export default class LetterElement {
-  constructor (letter, audio, color) {
+  constructor ({ note, Tone }) {
     this.state = {
-      audio,
-      color,
-      letter
+      note,
+      synth: Tone.Synth().toDestination();
     };
 
     this.handleClick = this.handleClick.bind(this);
   };
 
-  handleClick (e) {
-    console.log(this.state);
-    console.log(this.state.audio);
-    this.state.audio.play();
+  async handleClick (e) {
+    const {note, synth} = this.state;
+
+    await Tone.start();
+    synth.triggerAttackRelease(note, "8n");
   };
 
   render () {
-    const letterContainer = document.createElement("div");
-    const letterSpan = document.createElement("span");
-    const letterNode = document.createTextNode(this.state.letter);
-    const containerStyle = letterContainer.style;
-    const spanStyle = letterSpan.style;
+    const noteContainer = document.createElement("div");
+    const containerStyle = noteContainer.style;
 
-    letterContainer.appendChild(letterSpan);
-    letterContainer.classname = "letter-container";
+    if (note.slice(1) === '#') {
+      noteContainer.className = "note-container black";
+    } else {
+      noteContainer.className = "note-container white";
+    };
+
     containerStyle.margin = "auto";
-    containerStyle.diplay = "grid";
+    containerStyle.display = "grid";
     containerStyle.gridTemplateColumns = "1fr"
     containerStyle.placeContent = "center";
+    containerStyle.cursor = "pointer";
 
-    letterSpan.appendChild(letterNode);
-    spanStyle.color = `${this.state.color}`;
-    spanStyle.fontSize = "6em";
-    spanStyle.fontWeight = "bolder";
-    spanStyle.cursor = "pointer";
-    letterSpan.addEventListener('click', this.handleClick);
+    noteContainer.addEventListener('click', this.handleClick);
 
-    return letterContainer;
+    return noteContainer;
   };
 };
