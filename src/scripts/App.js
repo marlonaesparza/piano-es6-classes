@@ -1,11 +1,10 @@
 import KeyboardOfLetters from "./KeyboardOfLetters.js";
 
 export default class App {
-  constructor (word, samples, colors) {
+  constructor ({notes, Tone}) {
     this.state = {
-      word,
-      samples,
-      colors
+      notes,
+      Tone
     };
   };
 
@@ -16,10 +15,7 @@ export default class App {
 
     appContainer.appendChild(keyboardContainer);
     appContainer.className = "app-container";
-    containerStyle.margin = "auto";
-    containerStyle.display = "grid";
-    containerStyle.placeContent = "center";
-    containerStyle.backgroundColor = "black";
+    containerStyle.display = "flex";
 
     return appContainer;
   };

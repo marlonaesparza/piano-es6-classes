@@ -1,41 +1,42 @@
+// import * as Tone from 'tone';
+
+import { Tone } from "tone/build/esm/core/Tone";
+
 export default class LetterElement {
-  constructor (letter, audio, color) {
+  constructor ({ note, Tone }) {
     this.state = {
-      audio,
-      color,
-      letter
+      note,
+      Tone
     };
 
     this.handleClick = this.handleClick.bind(this);
   };
 
-  handleClick (e) {
-    console.log(this.state);
-    console.log(this.state.audio);
-    this.state.audio.play();
+  async handleClick (e) {
+    const {note, Tone} = this.state;
+    await Tone.start();
+    const synth = new Tone.Synth().toDestination();
+    synth.triggerAttackRelease(note, "8n");
   };
 
   render () {
-    const letterContainer = document.createElement("div");
-    const letterSpan = document.createElement("span");
-    const letterNode = document.createTextNode(this.state.letter);
-    const containerStyle = letterContainer.style;
-    const spanStyle = letterSpan.style;
+    const { note } = this.state;
 
-    letterContainer.appendChild(letterSpan);
-    letterContainer.classname = "letter-container";
-    containerStyle.margin = "auto";
-    containerStyle.diplay = "grid";
-    containerStyle.gridTemplateColumns = "1fr"
-    containerStyle.placeContent = "center";
+    const noteContainer = document.createElement("div");
+    const containerStyle = noteContainer.style;
 
-    letterSpan.appendChild(letterNode);
-    spanStyle.color = `${this.state.color}`;
-    spanStyle.fontSize = "6em";
-    spanStyle.fontWeight = "bolder";
-    spanStyle.cursor = "pointer";
-    letterSpan.addEventListener('click', this.handleClick);
+    if (note.slice(1).slice(0, 1) === "#") {
+      console.log(note, true);
+      noteContainer.className = "note-container black";
+    } else {
+      console.log(note, false);
+      noteContainer.className = "note-container white";
+    };
 
-    return letterContainer;
+    containerStyle.cursor = "pointer";
+
+    noteContainer.addEventListener('click', this.handleClick);
+
+    return noteContainer;
   };
 };
