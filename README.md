@@ -1,4 +1,4 @@
-# word-keyboard
+# piano-es6-classes
 Creates a musical keyboard, from letters of a word, using Vanilla Javascipt + ES6 Classes.
 
 In second phase of development:
